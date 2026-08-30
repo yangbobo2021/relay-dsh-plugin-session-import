@@ -1,8 +1,4 @@
 import type { ReactNode } from 'react'
-import type { PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
-import type { SidebarFooterActionOwnerProps } from '@deepseek-ai/dsh-client-ui-sidebar/client'
-
-type SidebarFooterContractAnchor = SidebarFooterActionOwnerProps
 
 /** One import implementation contributed by a provider plugin. */
 export interface SessionImportProviderDescriptor {
@@ -24,16 +20,9 @@ export interface SessionImportProviderOwnerProps {
   registerProvider: (provider: SessionImportProviderDescriptor) => () => void
 }
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
-  interface SlotMap {
-    /** Provider contributions mounted by the one session-import footer hub. */
-    'relay.session-import.provider': {
-      kind: 'list'
-      scope: 'root'
-      owner: SessionImportProviderOwnerProps
-    }
-  }
+/** Canonical slot definition consumers merge into their local DSH type graph. */
+export interface SessionImportProviderSlotDefinition {
+  kind: 'list'
+  scope: 'root'
+  owner: SessionImportProviderOwnerProps
 }
-
-/** Base props every provider contribution receives before its private inject/locale shares. */
-export type SessionImportProviderProps = PropsRuntime<'relay.session-import.provider'>

@@ -1,13 +1,16 @@
 import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client'
 import type {} from '@deepseek-ai/dsh-client-locale/client'
 import type { SidebarFooterActionOwnerProps } from '@deepseek-ai/dsh-client-ui-sidebar/client'
-import type {} from '../contracts.ts'
+import type { SessionImportProviderSlotDefinition } from '../contracts.ts'
 import { SessionImportHub } from './SessionImportHub.tsx'
 import { en, zh, type SessionImportLocaleKey } from './locales.ts'
 
 type SidebarFooterContractAnchor = SidebarFooterActionOwnerProps
 
 declare module '@deepseek-ai/dsh-client-ui-slots' {
+  interface SlotMap {
+    'relay.session-import.provider': SessionImportProviderSlotDefinition
+  }
   interface LocaleNamespaceMap {
     'relay.session-import': SessionImportLocaleKey
   }
@@ -34,5 +37,5 @@ export function apply(ctx: ClientContext): void {
 export type {
   SessionImportProviderDescriptor,
   SessionImportProviderOwnerProps,
-  SessionImportProviderProps,
+  SessionImportProviderSlotDefinition,
 } from '../contracts.ts'

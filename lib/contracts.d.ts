@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { PropsRuntime } from "@deepseek-ai/dsh-client-ui-slots";
 
 //#region src/contracts.d.ts
 /** One import implementation contributed by a provider plugin. */
@@ -20,18 +19,12 @@ interface SessionImportProviderOwnerProps {
   /** Register while mounted and dispose the exact registration on unmount. */
   registerProvider: (provider: SessionImportProviderDescriptor) => () => void;
 }
-declare module '@deepseek-ai/dsh-client-ui-slots' {
-  interface SlotMap {
-    /** Provider contributions mounted by the one session-import footer hub. */
-    'relay.session-import.provider': {
-      kind: 'list';
-      scope: 'root';
-      owner: SessionImportProviderOwnerProps;
-    };
-  }
+/** Canonical slot definition consumers merge into their local DSH type graph. */
+interface SessionImportProviderSlotDefinition {
+  kind: 'list';
+  scope: 'root';
+  owner: SessionImportProviderOwnerProps;
 }
-/** Base props every provider contribution receives before its private inject/locale shares. */
-type SessionImportProviderProps = PropsRuntime<'relay.session-import.provider'>;
 //#endregion
-export { SessionImportProviderDescriptor, SessionImportProviderOwnerProps, SessionImportProviderProps };
+export { SessionImportProviderDescriptor, SessionImportProviderOwnerProps, SessionImportProviderSlotDefinition };
 //# sourceMappingURL=contracts.d.ts.map

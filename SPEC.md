@@ -12,6 +12,9 @@ progress, and result behavior; the hub owns only aggregation and navigation.
   `sidebar.footer.action` list slot.
 - The hub declares the root-scoped list slot
   `relay.session-import.provider`.
+- The package exports the canonical slot-definition type. Each provider merges
+  that type into its local DSH `SlotMap`, keeping one contract while avoiding
+  package-manager-specific TypeScript module identities.
 - A provider contribution is renderless while idle. It registers a localized
   descriptor on mount and renders only its own import dialog when selected.
 - Provider ids are stable and unique. Lower `order` values appear first.
@@ -37,6 +40,10 @@ row whose `name` is `relay-dsh-plugin-session-import`. Multiple rows are safe:
 the host plugin is intentionally empty and DSH client modules are deduplicated
 by package name. Provider client declarations inject this package so the hub
 applies before provider contributions.
+
+Local DSH development symlinks must preserve one consumer-root type identity
+for official DSH peer packages. Provider typechecks pin `@deepseek-ai/*`
+resolution to their own `node_modules` and enable `preserveSymlinks`.
 
 ## Non-goals
 

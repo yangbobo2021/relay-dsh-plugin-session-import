@@ -14,6 +14,13 @@ test('package exposes the host, client, and provider contract surfaces', () => {
   assert.equal(manifest.dsh.bundle.patch, './cordis.patch.yml')
 })
 
+test('provider contract stays independent from a concrete DSH type graph', async () => {
+  const contract = await readFile(new URL('../lib/contracts.d.ts', import.meta.url), 'utf8')
+  assert.match(contract, /interface SessionImportProviderSlotDefinition/)
+  assert.doesNotMatch(contract, /PropsRuntime/)
+  assert.doesNotMatch(contract, /declare module ['"]@deepseek-ai\/dsh-client-ui-slots/)
+})
+
 test('wide and rail trigger geometry stays compatible with the official sidebar foot', async () => {
   const css = await readFile(new URL('../src/client/SessionImportHub.module.css', import.meta.url), 'utf8')
   const trigger = css.match(/\.trigger\s*\{(?<rules>[^}]*)\}/s)?.groups?.rules ?? ''
