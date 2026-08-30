@@ -40,6 +40,7 @@
     "README.zh.md",
     "SPEC.md",
     "docs/spec",
+    "docs/images",
     "cordis.patch.yml",
     "lib/client.js",
     "lib/client.js.map",

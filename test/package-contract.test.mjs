@@ -11,6 +11,7 @@ test('package exposes the host, client, and provider contract surfaces', () => {
   assert.equal(manifest.exports['./contracts'].types, './lib/contracts.d.ts')
   assert.equal(manifest.dsh.client.platform, 'web')
   assert.ok(manifest.dsh.client.inject.includes('@deepseek-ai/dsh-client-ui-sidebar'))
+  assert.ok(manifest.files.includes('docs/images'))
   assert.equal(manifest.dsh.bundle.patch, './cordis.patch.yml')
 })
 
