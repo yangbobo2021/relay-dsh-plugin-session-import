@@ -2,7 +2,12 @@
   "name": "relay-dsh-plugin-session-import",
   "version": "0.1.0",
   "description": "Provider-neutral session import hub for DeepSeek Harness plugins.",
-  "keywords": ["dsh-plugin", "deepseek-harness", "dsh", "session-import"],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "session-import"
+  ],
   "license": "MIT",
   "type": "module",
   "main": "lib/host-plugin.js",
@@ -14,8 +19,12 @@
   "bugs": {
     "url": "https://github.com/yangbobo2021/relay-dsh-plugin-session-import/issues"
   },
-  "engines": { "node": ">=22.13" },
-  "publishConfig": { "access": "public" },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prepare:dsh": "bash scripts/link-dsh-development-peers.sh",
     "prebuild": "npm run prepare:dsh && node -e \"require('node:fs').rmSync('lib',{recursive:true,force:true})\"",
@@ -48,26 +57,34 @@
     "lib/contracts.js.map",
     "lib/contracts.d.ts",
     "lib/host-plugin.js",
-    "lib/host-plugin.js.map"
+    "lib/host-plugin.js.map",
+    "docs/dsh-0.1.2-alpha.2.md"
   ],
   "dsh": {
     "client": {
       "inject": [
         "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-client-runtime",
         "@deepseek-ai/dsh-client-ui-primitives",
         "@deepseek-ai/dsh-client-ui-sidebar",
-        "@deepseek-ai/dsh-client-ui-slots"
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-workspace-controller"
       ],
       "platform": "web"
     },
-    "bundle": { "patch": "./cordis.patch.yml" }
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
   },
   "peerDependencies": {
     "react": "^18.2.0"
   },
   "peerDependenciesMeta": {
-    "react": { "optional": true }
+    "react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@testing-library/react": "^16.3.2",
