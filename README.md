@@ -1,6 +1,15 @@
 # Relay DSH Session Import
 
-> Unreleased adaptation: this branch targets DSH `0.1.2-alpha.2`. npm versions and tags are unchanged; installation examples for published releases do not establish compatibility with the new DSH. See [compatibility notes](docs/dsh-0.1.2-alpha.2.md).
+> **Now supports the latest DSH `0.1.2-alpha.2`.** The same plugin release is verified on DSH `0.1.2-alpha.2` and `0.1.1-rc.2`. [Install it and try the latest DSH](https://www.npmjs.com/package/relay-dsh-plugin-session-import) · [Compatibility details](docs/dsh-0.1.2-alpha.2.md).
+
+```bash
+npx @deepseek-ai/dsh@0.1.2-alpha.2 plugin --profile web add relay-dsh-plugin-session-import@0.2.0-rc.1 relay-dsh-plugin-codex@0.2.0-rc.1
+npx @deepseek-ai/dsh@0.1.2-alpha.2 web
+```
+
+[![DSH compatibility](https://img.shields.io/badge/DSH-0.1.1--rc.2%20%7C%200.1.2--alpha.2-2f7d68)](https://github.com/deepseek-ai/deepseek-harness)
+
+English | [中文](README.zh.md)
 
 Provider-neutral session import hub for DeepSeek Harness. It contributes one
 sidebar action and a typed provider slot; import implementations stay in their
