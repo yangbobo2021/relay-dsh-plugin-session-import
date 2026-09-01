@@ -5,8 +5,8 @@ import test from "node:test";
 import { releaseMetadata } from "../scripts/release-metadata.mjs";
 
 test("stable release tags publish to latest", () => {
-  assert.deepEqual(releaseMetadata("v0.2.0", "0.2.0"), {
-    version: "0.2.0",
+  assert.deepEqual(releaseMetadata("v0.2.1", "0.2.1"), {
+    version: "0.2.1",
     npmTag: "latest",
   });
 });
@@ -30,7 +30,7 @@ test("release workflow uses guarded tokenless npm publishing", async () => {
   assert.match(workflow, /id-token: write/);
   assert.match(workflow, /node scripts\/release-metadata\.mjs/);
   assert.match(workflow, /git merge-base --is-ancestor/);
-  assert.match(workflow, /0a53fb55bea101816fa226bb964ae2bed71c343b/);
+  assert.match(workflow, /dd6322d604e00eec1ba5e0c8541159906a21094a/);
   assert.match(workflow, /npm publish --provenance --access public --tag/);
   assert.match(workflow, /Verify the published dist-tag/);
   assert.match(workflow, /npm view "\$\{package_name\}@\$\{npm_tag\}" version/);

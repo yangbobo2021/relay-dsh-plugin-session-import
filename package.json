@@ -1,6 +1,6 @@
 {
   "name": "relay-dsh-plugin-session-import",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Provider-neutral session import hub for DeepSeek Harness plugins.",
   "keywords": [
     "dsh-plugin",
@@ -59,7 +59,7 @@
     "lib/contracts.d.ts",
     "lib/host-plugin.js",
     "lib/host-plugin.js.map",
-    "docs/dsh-0.1.2-alpha.2.md"
+    "docs/dsh-0.1.2-alpha.3.md"
   ],
   "dsh": {
     "client": {
